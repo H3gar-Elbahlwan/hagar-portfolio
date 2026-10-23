@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { background: #0a0f1d; color: #cbd5e1; }
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(rgba(0,240,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,240,255,.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+@layer components {
+  .glass { @apply rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl; }
+  .glass-hover { @apply transition duration-300 hover:-translate-y-1 hover:border-cyan-neon/60 hover:shadow-glow; }
+  .section { @apply mx-auto max-w-6xl px-5 py-24 md:px-8; }
+  .h2 { @apply text-3xl font-bold tracking-tight text-white md:text-4xl; }
+}
+@media (hover: hover) and (pointer: fine) { body, a, button, input { cursor: none; } }
+:focus-visible { outline: 2px solid #00f0ff; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
